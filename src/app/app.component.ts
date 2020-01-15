@@ -1,10 +1,5 @@
 import { Component } from '@angular/core';
-
-interface Pizza {
-  id: number;
-  name: string;
-  price: number;
-}
+import { Pizza } from './models/pizza.model'
 
 const PIZZAS : Pizza[] = [
   { id: 1, name: 'Reine', price: 12 },
