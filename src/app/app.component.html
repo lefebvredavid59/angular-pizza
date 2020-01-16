@@ -1,4 +1,9 @@
-<h1>{{ title }}</h1>
+<app-menu [title]="title"
+          color="dark"
+          ></app-menu>
+
+<div class="container">
+<h1 class="text-center">{{ title }}</h1>
 <app-pizza [pizza]="selectedPizza"></app-pizza>
 
 
@@ -10,7 +15,7 @@
 <h2>Les pizzas</h2>
 
 <ul>
-  <li *ngFor="let pizza of pizzas" (click)="onSelect(pizza)">
+  <li *ngFor="let pizza of pizzas" (click)="onSelect(pizza)"[class.selected]="pizza==selectedPizza">
     {{ pizza.name }}
   </li>
 </ul>
@@ -22,3 +27,4 @@
 
 
 <app-ingredient-list [ingredients]="ingredients"></app-ingredient-list>
+</div>
