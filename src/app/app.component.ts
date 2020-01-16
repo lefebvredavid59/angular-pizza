@@ -1,25 +1,12 @@
 import { Component } from '@angular/core';
 import { Pizza } from './models/pizza.model';
-import {Author} from './models/author.model';
+import { User } from './models/user.model';
 
-const PIZZAS : Pizza[] = [
+const PIZZAS: Pizza[] = [
   { id: 1, name: 'Reine', price: 12 },
   { id: 2, name: '4 fromages', price: 13 },
   { id: 3, name: 'Orientale', price: 11 },
   { id: 4, name: 'Cannibale', price: 9 }
-];
-
-const AUTHORS : Author[] = [
-  {id: 1,
-   name:'David', 
-   lastname:'Lefebvre',
-   bird: '1988-11-06',
-   avatar:'https://image.flaticon.com/icons/png/128/36/36359.png'},
-  {id: 2,
-    name:'Aurelie',
-    lastname:'Lefebvre',
-    bird:'1988-03-01',
-    avatar:'https://www.toornament.com/media/file/2573231687974862855/logo_large?v=1569941863'}
 ];
 
 @Component({
@@ -30,19 +17,31 @@ const AUTHORS : Author[] = [
 export class AppComponent {
   title = 'Pizza Party';
   selectedPizza: Pizza;
-  selectedAuthor: Author;
   pizzas: Pizza[] = PIZZAS;
-  authors: Author[] = AUTHORS;
-  
+  user: User = {
+    name: 'Mota',
+    firstname: 'Matthieu',
+    birthday: '1991-11-18',
+    avatar: 'https://www.gravatar.com/avatar/5355a3882df0fdd7689f8b0b5dc50720',
+    age: null
+  };
 
-  onSelect(pizza : Pizza): void{
-    //On recupere la pizza cliquee
-    console.log(pizza);
-    this.selectedPizza = pizza;  
+  constructor() {
+    this.calculateAge('1991-11-18');
   }
 
-  onSelect2(author : Author): void{
-    console.log(author);
-    this.selectedAuthor = author;
+  private calculateAge(date: string): void {
+    let currentDate = Date.now(); // 2020-01-16 en timestamp (millisecondes)
+    let birthDate = (new Date(this.user.birthday)).getTime(); // 1991-11-18 en timestamp (millisecondes)
+    let timeDiff = currentDate - birthDate;
+    let age = (new Date(timeDiff)).getFullYear() - 1970;
+
+    this.user.age = age;
+  }
+
+  onSelect(pizza: Pizza): void {
+    // On récupère la pizza cliquée
+    console.log(pizza);
+    this.selectedPizza = pizza;
   }
 }

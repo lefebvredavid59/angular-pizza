@@ -1,7 +1,8 @@
-export interface Author {
-    id: number;
+export interface Author  {
     name: string;
-    lastname: string;
-    bird: string;
+    firstname: string;
+    birthday: string;
     avatar: string;
-}
+    age?: number;
+  }
+  
