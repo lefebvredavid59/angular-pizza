@@ -1,0 +1,11 @@
+
+
+
+<div *ngIf="author">
+    <h2>{{author.name}} {{author.lastname}}</h2>
+    <img src="{{author.avatar}}" alt="Photo {{author.name}}"/>
+    <p>Date de naissance : {{author.bird}}</p>
+
+    
+    <input [(ngModel)]="author.name">
+</div>
