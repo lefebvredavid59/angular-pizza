@@ -4,9 +4,6 @@
         { "id": 2, "name": "4 fromages", "price": 13 },
         { "id": 3, "name": "Orientale", "price": 11 },
         { "id": 4, "name": "Cannibale", "price": 9 },
-        { "id": 5, "name": "Chorizo", "price": 10},
-        { "id": 5, "name": "Coucou", "price": 10},
-        { "id": 5, "name": "petite", "price": 10},
-        { "id": 5, "name": "perruche 🐦", "price": 10}
+        { "id": 5, "name": "Chorizo", "price": 10}
     ]
 }
