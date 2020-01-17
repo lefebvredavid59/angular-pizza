@@ -2,6 +2,7 @@ import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
 import { FormsModule } from '@angular/forms';
 import { RouterModule } from '@angular/router';
+import { HttpClientModule } from '@angular/common/http';
 
 import { AppComponent } from './app.component';
 import { PizzaComponent } from './pizza/pizza.component';
@@ -38,7 +39,8 @@ import { PizzaSingleComponent } from './pizza-single/pizza-single.component';
       { path:'', component : HomeComponent },
       { path:'pizzas', component : PizzaListComponent},
       { path:'pizzas/:id', component : PizzaSingleComponent}
-    ])
+    ]),
+    HttpClientModule
   ],
   providers: [],
   bootstrap: [AppComponent]

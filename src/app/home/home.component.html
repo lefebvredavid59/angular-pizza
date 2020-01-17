@@ -15,15 +15,15 @@
     
     class="col-3"
   >
-      <div class="card" [class.selected]="pizza==selectedPizza">
+      <div class="card mt-3" [class.selected]="pizza==selectedPizza">
         <div class="card-body">
           <h5 class="card-title">{{pizza.name}}</h5>
-          <a routerLink="/pizzas/{{pizza.id}}">Voir la pizza</a>
           <span *ngFor="let selectedIngredient of selectedIngredients ; index as i"
             class="badge" [ngClass]="'badge-' + selectedIngredient.color">
             {{selectedIngredient.name}}
-            <span (click)="deleteIngredient(i, $event)">X</span>
-          </span>
+           <span (click)="deleteIngredient(i, $event)">X</span>
+          </span><br>
+          <a routerLink="/pizzas/{{pizza.id}}">Voir la pizza</a>
         </div>
         </div>
   </div>

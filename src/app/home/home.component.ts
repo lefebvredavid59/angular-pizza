@@ -2,13 +2,9 @@ import { Component } from '@angular/core';
 import { Pizza } from '../models/pizza.model';
 import { User } from '../models/user.model';
 import {Ingredient} from '../models/ingredient.model';
+import { PizzaService} from '../pizza.service';
 
-const PIZZAS: Pizza[] = [
-  { id: 1, name: 'Reine', price: 12 },
-  { id: 2, name: '4 fromages', price: 13 },
-  { id: 3, name: 'Orientale', price: 11 },
-  { id: 4, name: 'Cannibale', price: 9 }
-];
+
 
 @Component({
   selector: 'app-home',
@@ -17,7 +13,7 @@ const PIZZAS: Pizza[] = [
 })
 export class HomeComponent {
   selectedPizza: Pizza;
-  pizzas: Pizza[] = PIZZAS;
+  pizzas: Pizza[] = [];
   user: User = {
     name: 'Mota',
     firstname: 'Matthieu',
@@ -31,9 +27,17 @@ export class HomeComponent {
     {name: 'Olive', image:'olive.jpg', weight: 5, price: 1, color:'dark'}
   ];
   selectedIngredients: Ingredient[] = [];
-  constructor() {
-    this.calculateAge('1991-11-18');
+
+  constructor(private pizzaService: PizzaService) {
   }
+
+ngOnInit(){
+    this.pizzaService.getPizzas().then(
+      pizzas => this.pizzas = pizzas
+    );
+
+    this.calculateAge('1991-11-18');
+}
 
   private calculateAge(date: string): void {
     let currentDate = Date.now(); // 2020-01-16 en timestamp (millisecondes)
