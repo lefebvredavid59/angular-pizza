@@ -14,6 +14,7 @@ import { PizzaService} from '../pizza.service';
 export class HomeComponent {
   selectedPizza: Pizza;
   pizzas: Pizza[] = [];
+  number = 2;
   user: User = {
     name: 'Mota',
     firstname: 'Matthieu',
