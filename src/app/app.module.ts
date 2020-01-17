@@ -13,6 +13,8 @@ import { TestPipe } from './test.pipe';
 import { PizzaPipe } from './pizza.pipe';
 import { TaxPipe } from './tax.pipe';
 import { HomeComponent } from './home/home.component';
+import { PizzaListComponent } from './pizza-list/pizza-list.component';
+import { PizzaSingleComponent } from './pizza-single/pizza-single.component';
 
 @NgModule({
   declarations: [
@@ -24,14 +26,18 @@ import { HomeComponent } from './home/home.component';
     TestPipe,
     PizzaPipe,
     TaxPipe,
-    HomeComponent
+    HomeComponent,
+    PizzaListComponent,
+    PizzaSingleComponent
   ],
   imports: [
     BrowserModule,
     FormsModule,
     RouterModule.forRoot([
       // Un objet represente une route
-      { path:'', component : HomeComponent }
+      { path:'', component : HomeComponent },
+      { path:'pizzas', component : PizzaListComponent},
+      { path:'pizzas/:id', component : PizzaSingleComponent}
     ])
   ],
   providers: [],

@@ -18,6 +18,7 @@
       <div class="card" [class.selected]="pizza==selectedPizza">
         <div class="card-body">
           <h5 class="card-title">{{pizza.name}}</h5>
+          <a routerLink="/pizzas/{{pizza.id}}">Voir la pizza</a>
           <span *ngFor="let selectedIngredient of selectedIngredients ; index as i"
             class="badge" [ngClass]="'badge-' + selectedIngredient.color">
             {{selectedIngredient.name}}

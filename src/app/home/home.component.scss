@@ -1,0 +1,10 @@
+$color: lightgreen;
+
+.card {
+    transition: 0.5s;
+
+    &:hover, &.selected {
+        cursor: pointer;
+        box-shadow: 1px 1px 1px 1px lightgrey;
+    }
+}
