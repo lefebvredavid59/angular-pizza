@@ -1,0 +1,43 @@
+<h1 class="text-center">Accueil</h1>
+<app-pizza [pizza]="selectedPizza"></app-pizza>
+
+
+
+<!--
+  <input [value]="selectedPizza.name" (keyup)="selectedPizza.name = $event.target.value">
+-->
+
+<h2>Les pizzas</h2>
+
+<div class="row">
+  <div *ngFor="let pizza of pizzas" 
+    (click)="onSelect(pizza)"
+    
+    class="col-3"
+  >
+      <div class="card" [class.selected]="pizza==selectedPizza">
+        <div class="card-body">
+          <h5 class="card-title">{{pizza.name}}</h5>
+          <span *ngFor="let selectedIngredient of selectedIngredients ; index as i"
+            class="badge" [ngClass]="'badge-' + selectedIngredient.color">
+            {{selectedIngredient.name}}
+            <span (click)="deleteIngredient(i, $event)">X</span>
+          </span>
+        </div>
+        </div>
+  </div>
+
+</div>
+
+<h2>Les TPs</h2>
+
+
+<app-author [user]="user"></app-author>
+
+
+<app-ingredient-list [ingredients]="ingredients" (select)="selectIngredient($event)"></app-ingredient-list>
+
+<h2>Les pipes</h2>
+
+<p>TVA 20% : {{10 | tax}}</p>
+<p>TVA 65% : {{10 | tax:65}}</p>
